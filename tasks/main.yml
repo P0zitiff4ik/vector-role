@@ -11,10 +11,15 @@
     line: "[ERROR] Some log with trace"
     mode: "0664"
 - name: Install Vector
-  become: true
-  ansible.builtin.yum:
-    name:
-      - https://yum.vector.dev/stable/vector-0/{{ vector_arch }}/vector-{{ vector_version }}-1.{{ vector_arch }}.rpm
+  ansible.builtin.include_tasks:
+    file: "{{ lookup('first_found', params) }}"
+    apply:
+      tags: [install]
+  vars:
+    params:
+      files:
+        - "install/{{ ansible_pkg_mgr }}.yml"
+        - 'empty.yml'
 - name: Configure Vector | Ensure config directory exists
   ansible.builtin.file:
     path: "{{ vector_config_path }}"

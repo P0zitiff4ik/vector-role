@@ -1,6 +1,7 @@
 ---
 - name: Start Vector service
   become: true
+  # when: ansible_virtualization_type != "docker"
   ansible.builtin.systemd:
     name: vector
     state: restarted
