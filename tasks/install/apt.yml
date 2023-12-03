@@ -8,5 +8,5 @@
       "x86_64": "amd64"
     }
   ansible.builtin.apt:
-    update_cache: yes
+    update_cache: true
     deb: https://apt.vector.dev/pool/v/ve/vector_{{ vector_version }}-1_{{ [vector_arch] | map('extract', deb_architecture) | first }}.deb
