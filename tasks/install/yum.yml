@@ -1,5 +1,5 @@
 ---
-- name: Install Vector
+- name: Install Vector by YUM
   become: true
   when: ansible_pkg_mgr=="yum"
   ansible.builtin.yum:

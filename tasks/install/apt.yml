@@ -1,5 +1,5 @@
 ---
-- name: Install Vector
+- name: Install Vector by APT
   become: true
   when: ansible_pkg_mgr=="apt"
   vars:

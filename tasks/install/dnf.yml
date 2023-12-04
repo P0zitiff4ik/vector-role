@@ -1,5 +1,5 @@
 ---
-- name: Install Vector
+- name: Install Vector by DNF
   become: true
   when: ansible_pkg_mgr=="dnf"
   ansible.builtin.dnf:
