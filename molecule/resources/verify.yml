@@ -18,8 +18,8 @@
   #   ansible.builtin.command: vector validate
   #   register: vld_res
   #   changed_when: false
-  - name: Assert vector healthcheck
-    ansible.builtin.assert:
-      that:
-        - vld_res.rc == 0
-        - "'Validated' == {{ vld_res.stdout_lines | map('trim') | list }}[-1]"
+  # - name: Assert vector healthcheck
+  #   ansible.builtin.assert:
+  #     that:
+  #       - vld_res.rc == 0
+  #       - "'Validated' == {{ vld_res.stdout_lines | map('trim') | list }}[-1]"
